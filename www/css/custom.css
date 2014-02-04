@@ -1,0 +1,503 @@
+
+@font-face {
+    font-family: 'eraser';
+    src: url('EraserRegular-webfont.svg#eraserregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'marker';
+    src: url('PermanentMarker-webfont.svg#permanent_markerregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.eraser{
+	font-family: 'eraser';
+	color:white;
+	text-align: center;
+}
+.eraser span, .eraser a{
+	font-weight: bold;
+	color: #9bedf2;
+	text-decoration: none;
+	cursor: pointer;
+}
+.marker{
+	font-family: 'marker';
+}
+
+#about-app p{
+    font-family: 'eraser';
+    color: white;
+    font-size: 1.5em;
+    line-height: 1.25em;
+    text-indent: 45px;
+    padding: 20px;
+}
+
+.centeredtext{
+	text-align:center;
+	white-space:normal !important;
+} 
+.lefttext{
+	text-align:left;
+	white-space:normal !important;
+}
+.whitebar {
+	background-color: #FFF;
+	margin: 0px;
+	padding: 0px;
+	float: none;
+	height: 1px;
+	width: 100%;
+} 
+.bluebar {
+	background-color: #0055a5;
+	margin: 0px;
+	padding: 0px;
+	float: none;
+	height: 5px;
+	width: 100%;
+}
+#answer {
+	margin-bottom: 20px;
+}
+
+
+
+/*PNCH*/
+.ui-page{
+	height:100% !important;
+}
+.ui-content{
+	height:100% !important;
+}
+
+
+.chalkboard{
+    background:url('../images/menu-bg.png') repeat-x left top;
+    background-size: 100% 100%;
+}
+.chalkboard-2{
+	background:#567a75;
+}
+#about-app{
+	font-size:8px;
+}
+
+#professor{
+    max-height:75%;
+    max-width:90%;
+    position:absolute;
+    left:0;
+    bottom:0;
+}
+/*for results page*/
+.results{
+	padding-top:1px 10px; /* fixes weird gap */
+	height:100%;
+}
+.professor{
+    width:90%;
+    margin:15px 5% 0;
+}
+#flashcards .content{
+	overflow-y: hidden;
+}
+
+#start{
+    height: 100%;
+    width: 100%;
+}
+
+#answer-footer{
+	position: fixed;
+}
+
+/* Card Flippy Stuff */
+#flashcards .ui-content{
+	position: relative;
+}
+
+#questioncontainer{
+	height:100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.flip {
+  -webkit-perspective: 800;
+   width: 90%;
+   position: relative;
+   margin: 10px auto;
+   height: 80%;
+}
+.flip .card.flipped {
+  -webkit-transform: rotatey(-180deg);
+}
+.flip .card {
+  width: 100%;
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+  /* background-color:#f0f197; */
+  /* border:1px solid #000; */
+}
+.flip .card .face {
+  -webkit-backface-visibility: hidden ;
+  font-size: 1.15em;
+  font-family: 'marker';
+  text-align: center;
+  line-height: 2em;
+}
+.flip .card .front {
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  background: url('images/paper-texture.jpg') repeat;
+  box-shadow: 0 0 20px #000;
+  color: black;
+  cursor: pointer;
+  padding: 20px 0;
+  font-size: 2em;
+}
+.flip .card .back {
+  -webkit-transform: rotatey(-180deg);
+  background: url('images/paper-texture.jpg') repeat;
+  height: 100%;
+  width: 100%;
+  box-shadow: 0 0 20px #000;
+  color: black;
+  cursor: pointer;
+  padding: 40px 5px 0;
+  line-height:20px;
+}
+
+/* Fantastic Media Queries */
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+
+
+
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+	
+	.logo{
+	    background: url('../images/iphone/logo.png') no-repeat top left;
+	    position: fixed;
+	    bottom: 1%;
+	    right: 1%;
+	    height: 70px;
+	    width: 119px
+	}
+	
+	#pick{
+	    background: url('../images/iphone/pick-one.png') no-repeat top left;
+	    width: 175px;
+	    height: 49px;
+	    position: absolute;
+	    top: 5%;
+	    left: 5%;
+	}
+	
+	#about{
+	    background: url('../images/iphone/about.png') no-repeat top left;
+	    width: 94px;
+	    height: 32px;
+	    position: absolute;
+	    right: 13%;
+	    top: 52%;
+	}
+	
+	#vocab{
+	    background: url('../images/iphone/vocab.png') no-repeat top left;
+	    width: 184px;
+	    height: 34px;
+	    position: absolute;
+	    right: 13%;
+	    top: 36%;
+	}
+	
+	#tests{
+	    background: url('../images/iphone/tests.png') no-repeat top left;
+	    width: 238px;
+	    height: 31px;
+	    position: absolute;
+	    right: 20%;
+	    top: 22%;
+	}
+	
+	.professor{
+		height:140px;
+		position: fixed;
+		bottom:0;
+		left:30px;
+		width:auto;
+		margin:0 auto;
+	}
+	
+	#start-image{
+	    background: url('../images/iphone/launch-landscape.png') no-repeat top left;
+	    background-size: 100%;
+	    width: 100%;
+	    height: 100%;
+	    background-position: center bottom;
+	    background-color:#afe1f5;
+	}
+	
+	.flip{
+		height:150px;
+	}
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
+	
+	#start-image{
+	    background: url('../images/iphone/launch-portrait.png') no-repeat top left;
+	    background-size: 100%;
+	    width: 100%;
+	    height: 100%;
+	    background-position: center bottom;
+	    background-color:#afe1f5;
+	}
+	
+	#logo{
+	    background: url('../images/iphone/logo.png') no-repeat top left;
+	    position: absolute;
+	    bottom: 1%;
+	    right: 1%;
+	    height: 70px;
+	    width: 119px
+	}
+	
+	#pick{
+	    background: url('../images/iphone/pick-one.png') no-repeat top left;
+	    width: 175px;
+	    height: 49px;
+	    position: absolute;
+	    top: 5%;
+	    left: 5%;
+	}
+	
+	#about{
+	    background: url('../images/iphone/about.png') no-repeat top left;
+	    width: 94px;
+	    height: 32px;
+	    position: absolute;
+	    right: 30%;
+	    top: 40%;
+	}
+	
+	#vocab{
+	    background: url('../images/iphone/vocab.png') no-repeat top left;
+	    width: 184px;
+	    height: 34px;
+	    position: absolute;
+	    right: 7.5%;
+	    top: 28%;
+	}
+	
+	#tests{
+	    background: url('../images/iphone/tests.png') no-repeat top left;
+	    width: 238px;
+	    height: 31px;
+	    position: absolute;
+	    right: 10%;
+	    top: 18%;
+	}
+
+	.flip{
+		height:250px;
+	}
+
+	#quiznav{
+		display:block !important;
+	}
+	.professor{
+		position: fixed;
+		bottom: 0;
+		height:75%;
+		width: auto;
+		left:5%;
+	}
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+
+	.flip .card .front{
+		font-size:65px;
+		line-height: 70px;
+	}
+	.flip .card .back{
+		font-size: 40px;
+		line-height: 45px;
+	}
+
+	#quiznav{
+		display:block !important;
+	}
+	
+	.professor{
+		height:auto;
+		width:auto;
+		position: fixed;
+		bottom:0;
+		left:20px;
+		margin:0;
+	}
+
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+
+#start-image{
+    background: url('../images/ipad/regular/launch-landscape.png') no-repeat top left;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%
+}
+
+#logo{
+    background: url('../images/ipad/regular/logo.png') no-repeat top left;
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+    width: 288px;
+    height: 169px;
+}
+
+
+#pick{
+    background: url('../images/ipad/regular/pick-one.png') no-repeat top left;
+    width: 447px;
+    height: 87px;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+
+#about{
+    background: url('../images/ipad/regular/about.png') no-repeat top left;
+    width: 206px;
+    height: 65px;
+    position: absolute;
+    right: 15%;
+    top: 48%;
+}
+
+#vocab{
+    background: url('../images/ipad/regular/vocab.png') no-repeat top left;
+    width: 412px;
+    height: 68px;
+    position: absolute;
+    right: 15%;
+    top: 32%;
+}
+
+#tests{
+    background: url('../images/ipad/regular/tests.png') no-repeat top left;
+    width: 527px;
+    height: 63px;
+    position: absolute;
+    right: 20%;
+    top: 18%;
+}
+	
+	.flip{
+		height:400px;
+	}
+	
+	.professor{
+		position: fixed;
+		bottom: 0;
+		height:75%;
+		width: auto;
+		left:5%;
+	}
+
+
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+	
+	#start-image{
+	    background: url('../images/ipad/regular/launch-portrait.png') no-repeat top left;
+	    background-size: 100% 100%;
+	    width: 100%;
+	    height: 100%
+	}
+	
+	#logo{
+	    background: url('../images/ipad/regular/logo.png') no-repeat top left;
+	    position: absolute;
+	    bottom: 1%;
+	    right: 1%;
+	    width: 288px;
+	    height: 169px;
+	}
+	
+	#pick{
+	    background: url('../images/ipad/regular/pick-one.png') no-repeat top left;
+	    width: 447px;
+	    height: 87px;
+	    position: absolute;
+	    top: 5%;
+	    left: 5%;
+	}
+	
+	#about{
+	    background: url('../images/ipad/regular/about.png') no-repeat top left;
+	    width: 206px;
+	    height: 65px;
+	    position: absolute;
+	    right: 30%;
+	    top: 40%;
+	}
+	
+	#vocab{
+	    background: url('../images/ipad/regular/vocab.png') no-repeat top left;
+	    width: 412px;
+	    height: 68px;
+	    position: absolute;
+	    right: 7.5%;
+	    top: 28%;
+	}
+	
+	#tests{
+	    background: url('../images/ipad/regular/tests.png') no-repeat top left;
+	    width: 527px;
+	    height: 63px;
+	    position: absolute;
+	    right: 10%;
+	    top: 18%;
+	}
+	
+	.flip{
+		height:600px;
+	}
+
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' name='viewport' />
+		
+		<title>Realty Flashcard App</title>
+		<link rel="stylesheet" href="css/stringham.min.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.1.1.css" />
+        <link rel="stylesheet" href="css/custom.css" />
+		<script src="cordova.js"></script>
+		<script src="jquery-1.7.1.min.js"></script>
+		<script src="jquery.mobile-1.1.1.min.js"></script>
+        <script src="jquery.csv-0.62.js"></script>
+        <script src="js/wordbank.js"></script>
+        <script src="js/jquery-tap.js"></script>
+        <script src="js/vocabulary.js"></script>
+        
+        <script src="js/questions.js"></script>
+        <script src="js/quiz.js"></script>
+	</head>
+	<body>
+        
+        <div data-role="page" id="start">
+            <a href="#menu-page" data-transition="slideup"><div id="start-image"></div></a>
+        </div>
+        
+        <div data-role="page" id="menu-page" class='chalkboard'>
+            <img src="images/professor-1.png" id='professor' />
+            <div class='logo'></div>
+            
+            <div id='pick'></div>
+            <a href="#about-app" data-transition="slide"><div id='about'></div></a>
+            <a href="#autoselect" data-transition="slide"><div id='vocab'></div></a>
+            <a href="#quizzes" data-transition="slide"><div id='tests'></div></a>
+            
+        </div>
+        
+        <div data-role="page" id="about-app" class='chalkboard'>
+	        <div data-role="header">
+       			<a href="index.html" data-transition="slide" data-direction="reverse" data-role="button" data-rel="back">Back</a>
+        		<a href="#menu-page" data-transition="slide" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
+				<h1>Select Chapter</h1>
+    		</div><!-- /header -->
+    		
+            <div class='logo'></div>
+            <p>Real Estate Know-It-All is designed for candidates studying to become real estate agents.  This study aide helps you learn vocabulary words, terms, and concepts you need to know in order to ace your state real estate agent exam.  
+This app works in tandem with any real estate courses, books, or manuals you may already have, extracting all important terms into an app you can take anywhere.</p><br/>
+        </div>
+        
+        <div data-role="page" id="quizzes" class="chalkboard">
+	        <div data-role="header">
+       			<a href="index.html" data-transition="slide" data-direction="reverse" data-role="button" data-rel="back">Back</a>
+        		<a href="#menu-page" data-transition="slide" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
+				<h1>Select Quiz</h1>
+    		</div><!-- /header -->
+    		<div class="eraser">
+    			<h2 class="center">General</h2>
+	    		<span id="quiz-0" class="center quizlink">General Quiz 1</span><br/><br/>
+	    		<span id="quiz-1" class="center quizlink">General Quiz 2</span><br/><br/>
+	    		<span id="quiz-2" class="center quizlink">General Quiz 3</span><br/><br/>
+	    		<span id="quiz-3" class="center quizlink">General Quiz 4</span><br/><br/>
+	    		<span id="quiz-4" class="center quizlink">General Quiz 5</span><br/><br/>
+	    		<span id="quiz-5" class="center quizlink">General Quiz 6</span><br/>
+	    		<!--
+	    		<h2 class="center">Law</h2>
+	    		<span id="quiz-6" class="center quizlink">Utah Law 1</span><br/>
+	    		<span id="quiz-7" class="center quizlink">Utah Law 2</span><br/>
+	    		-->
+    		</div>
+    	</div>
+        
+        <div data-role="page" id="quiz" class="chalkboard-2 ">
+	        <div data-role="header">
+       			<a href="index.html" data-transition="fade" data-direction="reverse" data-role="button" data-rel="back">Back</a>
+        		<a href="#menu-page" data-transition="fade" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
+				<h1 id="quiztitle">Quiz</h1>
+    		</div><!-- /header -->
+            <div data-role="navbar" id="quiznav">
+				<ul>
+					<li><a href="#" id="qCount">X Questions</a></li><!-- data-icon="grid"  -->
+					<li><a href="#" id="quizpercent">--%</a></li><!-- data-icon="check" -->
+				</ul>
+            </div>
+                
+	        
+	        <div id="quiz-question" style="color:white;background:#567a75;">
+	        	<h2 style="font-weight:normal; padding:0 15px;">...</h2>
+		        <br/><br/>
+		        <ul style="margin:0;padding:0 0 50px;width:100%;">
+			        <li id="answer-a" style="padding: 10px 0 0 30px;">a. <span>...</span></li>
+					<li id="answer-b" style="padding: 10px 0 0 30px;">b. <span>...</span></li>
+					<li id="answer-c" style="padding: 10px 0 0 30px;">c. <span>...</span></li>
+					<li id="answer-d" style="padding: 10px 0 0 30px;">d. <span>...</span></li>
+		        </ul>
+	        </div>
+	        
+	        
+	        <div data-theme="a" data-role="footer" id='answer-footer' data-position="fixed">
+		        <div data-role="navbar" data-iconpos="top">
+				    <ul>
+				        <li id="select-a" data-transition="fade" data-role="button" style="background: #FE010A; color:#000; text-shadow:none;border-radius:0;border:none;" >A.</li>
+				        <li id="select-b" data-transition="fade" data-role="button" style="background: #FBAF40; color:#000; text-shadow:none;border-radius:0;border:none;" >B.</li>
+				        <li id="select-c" data-transition="fade" data-role="button" style="background: #39B44A; color:#000; text-shadow:none;border-radius:0;border:none;" >C.</li>
+				        <li id="select-d" data-transition="fade" data-role="button" style="background: #27A7E0; color:#000; text-shadow:none;border-radius:0;border:none;" >D.</li>
+				    </ul>
+				</div>
+	        </div>
+	        
+	        <div id="quiz-results" class="hidden">
+		        <h1 class="eraser centered"></h1>
+				<img src="images/professor-2.png" class='professor' style="max-width:95%;margin:0 auto;max-height:65%;" />
+				<div class='logo'></div>
+	        </div>
+	        
+        </div>
+        
+		<div data-role="page" id="autoselect" class="chalkboard eraser" data-theme="a">
+	        <div data-role="header">
+       			<a href="index.html" data-transition="fade" data-direction="reverse" data-role="button" data-rel="back">Back</a>
+        		<a href="#menu-page" data-transition="fade" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
+				<h1>Select Chapter</h1>
+    		</div><!-- /header -->
+    		
+    		<ul data-role="listview" data-filter="false" id="centerlistdisplay" class="eraser">
+    		</ul>
+		
+        </div>
+        
+		<div data-role="page" id="studylist" data-theme="a">
+			<div data-role="header">
+       			<a href="index.html" data-role="button" data-rel="back">Back</a>
+        		<a href="#menu-page" class="ui-btn-right jqm-home">Home</a>
+				<h1>Studylist</h1>
+    		</div><!-- /header -->
+ 				<div class="whitebar">
+                </div>
+                <div class="bluebar">
+                </div>
+                <div class="whitebar">
+                </div>
+			<div data-role="content" data-theme="a">	
+ 				<div class="content-primary">	
+	 				<h3>Words you Missed:</h3>
+	        		<ul data-role="listview" data-inset="true" id="wordsyoumissed">
+	        		</ul>
+	                <!--<h3>Word List:</h3>
+	                <ul data-role="listview" data-inset="true" id="allthewords">
+	        		</ul>-->
+				</div><!--/content-primary -->		
+			</div><!-- /content -->
+		</div>
+		
+        <div data-role="page" id="flashcards" data-theme="a">
+			<div data-role="header">
+       			<a href="index.html" data-role="button" data-rel="back">Back</a>
+        		<a href="#menu-page" class="ui-btn-right jqm-home">Home</a>
+				<h1 id="flashcardheader">Chapter</h1>
+    		</div><!-- /header -->
+				<div class="whitebar"></div>
+	            <div class="bluebar"></div>
+	            <div class="whitebar"></div>
+                <div data-role="navbar" id="quiznav">
+					<ul>
+						<li><a href="#" id="cardcount">X Cards</a></li><!-- data-icon="grid"  -->
+						<li><a href="#" class="ui-btn-active" id="percentcorrect">--%</a></li><!-- data-icon="check" -->
+						<li><a href="#" class="reset">Reset</a></li><!--  data-icon="refresh" -->
+					</ul>
+                </div>
+                
+				<div data-role="content" data-theme="a">	
+					<div class="content-primary chalkboard" id="questioncontainer"></div><!--/content-primary -->	
+				</div><!-- /content -->
+			<div data-role="footer" data-id="foo1" data-position="fixed">
+				<div data-role="navbar" data-iconpos="bottom">
+					<ul>
+						<li ><a href="#" id="wrong" class='activeOnce'>Missed</a></li><!-- data-icon="delete" -->
+						<li ><a href="#" id="flip" class='activeOnce'>Flip</a></li>
+						<li><a href="#" id="right" class='activeOnce'>Passed</a></li><!-- data-icon="plus" -->
+					</ul>
+				</div><!-- /navbar -->
+			</div><!-- /footer -->
+		</div>
+
+	</body>
+</html>
