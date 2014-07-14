@@ -8,6 +8,7 @@ var answerstate = "";
 var numcorrect = 0;
 var numwrong = 0;
 var wrongwords = new Array();
+var wrongQs = new Array(); // clear any quiz results
 var randomcard = "";
 var questionshowing = 1;
 var questionhidden = 2;
@@ -192,17 +193,19 @@ function selectwords(){
 
 $("#studylist").live("pagebeforeshow", function() {
 	$('#wordsyoumissed').empty();
-	for (var i = 0; i < wrongwords.length; i++){
-		$("#wordsyoumissed").append("<li> <h3 class=\"lefttext\">" + 
-		wrongwords[i][1] + 
-		"</h3><p class=\"lefttext\">" + 
-		wrongwords[i][2] +
-		"</p><p class=\"ui-li-aside\"><strong>" + 
-//		wrongwords[i][3] +
-		"</strong></p></li>");
-		
-		
-		$("#wordsyoumissed").listview('refresh');
+	if(wrongwords.length > 0){
+		for (var i = 0; i < wrongwords.length; i++){
+			$("#wordsyoumissed").append("<li> <h3 class=\"lefttext\">" + 
+			wrongwords[i][1] + 
+			"</h3><p class=\"lefttext\">" + 
+			wrongwords[i][2] +
+			"</p><p class=\"ui-li-aside\"><strong>" + 
+	//		wrongwords[i][3] +
+			"</strong></p></li>");
+			
+			
+			$("#wordsyoumissed").listview('refresh');
+		}
 	}
 });
 

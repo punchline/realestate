@@ -20,6 +20,7 @@ var numwrong = 0;
 var score = 100;
 
 var wrongQs = new Array();
+var wrongwords = new Array(); // clear any vocab results
 var randomQ = new Array();
 var randomPlace;
 var currentAnswers = new Array();
@@ -32,6 +33,9 @@ function loadQuestion()
 		$('#answer-footer').hide();
 		$('#quiz-results').show();
 		$('#quiz-results h1').html('You Scored '+numcorrect+'/'+(numcorrect + numwrong)+'!');
+		if(wrongQs.length > 0){
+			$('#quiz-results p').html('<a href="#studylist">Study</a> the questions you should review!');
+		}
 	}
 	$('#qCount').html(currentQs.length+' Questions');
 	randomPlace = Math.floor(Math.random()*currentQs.length); //get random number between 0 and currentQs.length
@@ -104,4 +108,25 @@ jQuery(document).ready(function(){
 		loadQuestion();
 	});
 	
+	
+	jQuery("#studylist").live("pagebeforeshow", function() {
+		jQuery('#wordsyoumissed').empty();
+		if(wrongQs.length > 0){
+			for (var i = 0; i < wrongQs.length; i++){
+				var c = wrongQs[i]['Correct'];
+				jQuery("#wordsyoumissed").append("<li> <h3 class=\"lefttext\">" + 
+				wrongQs[i]['Q'] + 
+				"</h3><p class=\"lefttext\"><strong style=\"color:#f00;\">" + 
+				wrongQs[i][c] +
+				"</strong></p><br/><p class=\"lefttext\">" + 
+				wrongQs[i]['Response'] +
+				"</p><p class=\"ui-li-aside\"><strong>" + 
+		//		wrongwords[i][3] +
+				"</strong></p></li>");
+				
+				
+				jQuery("#wordsyoumissed").listview('refresh');
+			}
+		}
+	});
 });
