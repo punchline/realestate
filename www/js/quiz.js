@@ -73,6 +73,7 @@ jQuery(document).ready(function(){
 	jQuery('span.quizlink').tap(function(){
 		currentQuiz = parseInt( $(this).attr('id').replace('quiz-','') ); //'quiz-0' ==> 0;
 		currentQs = questions[currentQuiz];
+		wrongQs = new Array();
 		
 		numcorrect = 0;
 		numwrong = 0;
@@ -97,6 +98,7 @@ jQuery(document).ready(function(){
 		else{
 			//wrong answer
 			numwrong++;
+			wrongQs.push(randomQ);
 		}
 		
 		loadQuestion();
